@@ -32,6 +32,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        //开启compose compiler 编译报告
+        // Enable Compose Compiler Report
+        freeCompilerArgs += ["-P","plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" +
+                project.buildDir.absolutePath + "/compose_metrics"]
+        // Enable Compose Compiler Metrics
+        freeCompilerArgs += ["-P","plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" +
+                project.buildDir.absolutePath + "/compose_metrics"]
     }
     buildFeatures {
         compose true
